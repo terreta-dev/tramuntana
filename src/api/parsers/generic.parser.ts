@@ -3,7 +3,7 @@ const findValueByPath = (inObject: any, path: string): any => {
   let subObject = inObject;
   for(let i = 0; i < pathParts.length-1; i++) {
     const elem = pathParts[i];
-    if( !subObject.hasOwnProperty(elem) ) {
+    if (!subObject || !subObject.hasOwnProperty(elem)) {
       return undefined;
     }
     subObject = subObject[elem];
@@ -16,7 +16,7 @@ const setValueByPath = (inObject: any, path: string, value: any): any => {
   const pathParts = path.split('.');
   for(let i = 0; i < pathParts.length-1; i++) {
     const elem = pathParts[i];
-    if( !subObject.hasOwnProperty(elem) ) {
+    if (!subObject.hasOwnProperty(elem)) {
       subObject[elem] = {}
     }
     subObject = subObject[elem];
