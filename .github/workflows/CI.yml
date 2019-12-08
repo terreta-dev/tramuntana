@@ -18,5 +18,6 @@ jobs:
         yarn install
         yarn run build --if-present
         yarn test a --watchAll=false
+        yarn test:coverage
     
 
