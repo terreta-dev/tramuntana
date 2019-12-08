@@ -17,6 +17,6 @@ jobs:
       run: |
         yarn install
         yarn run build --if-present
-        yarn test
+        yarn test a --watchAll=false
     
 
