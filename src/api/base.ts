@@ -9,7 +9,13 @@ export const axiosInstance: AxiosInstance = axios.create({
   },
 });
 
+const APP_ID = undefined;
+
 export const get = <T = any> (url: string): AxiosPromise<T> => {
-  return axiosInstance.get(url);
+  return axiosInstance.get(url, {
+    params: {
+      appId: APP_ID,
+    }
+  });
 }
 
