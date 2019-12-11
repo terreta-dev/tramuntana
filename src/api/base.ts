@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosPromise } from 'axios';
 
 export const axiosInstance: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:5000/',
+  baseURL: 'https://api.openweathermap.org/data/2.5/',
   timeout: 10000,
   headers: {
     'Accept': 'application/json',
