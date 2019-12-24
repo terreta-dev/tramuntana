@@ -2,7 +2,7 @@ import { Coordinates } from './coordinates';
 import { WeatherCondition } from './weather-condition';
 import { WeatherParameters } from './weather-parameters';
 
-export interface CurrentWeather { 
+export interface CurrentWeather {
   name: string;
   coordinates: Coordinates;
   weatherConditions: WeatherCondition[];
