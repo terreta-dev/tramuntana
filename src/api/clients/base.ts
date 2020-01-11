@@ -13,9 +13,6 @@ export const get = <T = any>(
   url: string,
   config?: AxiosRequestConfig
 ): Promise<T> => {
-  if (config) {
-    config.params['appId'] = process.env.REACT_APP_OPENWEATHER_KEY;
-  }
   return axiosInstance
     .get(url, config)
     .then((response: AxiosResponse<T>) => response.data)
