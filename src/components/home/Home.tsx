@@ -10,6 +10,8 @@ export const Home: React.FC = () => {
       <Header />
       <Box direction="row" align="start" justify="around">
         <CurrentWeatherComponent />
+      </Box>
+      <Box direction="row" align="start" justify="around">
         <FiveDayForecastComponent />
       </Box>
     </div>

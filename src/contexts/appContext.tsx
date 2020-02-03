@@ -19,7 +19,6 @@ const appContextReducer = (state: State, action: Action) => {
     case 'setCityName': {
       return { ...state, cityName: action.payload };
     }
-
     default: {
       throw new Error(`Unhandled action: ${action}`);
     }
@@ -28,7 +27,7 @@ const appContextReducer = (state: State, action: Action) => {
 
 const AppContextProvider = ({ children }: AppProviderProps) => {
   const [state, dispatch] = React.useReducer(appContextReducer, {
-    appId: '',
+    appId: process.env.REACT_APP_OPENWEATHER_KEY || '',
     cityName: '',
   });
   return (

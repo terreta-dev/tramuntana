@@ -16,14 +16,11 @@ export const FiveDayForecastComponent: React.FC = () => {
   }, [appId, cityName]);
 
   return (
-    <Box direction="column" align="center" justify="around">
+    <Box direction="row" align="center" justify="around" wrap={true}>
       {forecast &&
         forecast.forecasts &&
         forecast.forecasts.map((f, idx) => (
-          <div>
-            <span>Forecast for: {f.time}</span>
-            <ForecastCard key={idx} forecast={f} />
-          </div>
+          <ForecastCard key={idx} forecast={f} />
         ))}
       {!forecast.forecasts && <span>No forecasts</span>}
     </Box>

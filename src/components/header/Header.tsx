@@ -3,7 +3,7 @@ import { Box, Heading, TextInput } from 'grommet';
 import { useAppState, useAppDispatch } from '../../contexts/appContext';
 import './Header.css';
 
-export const Header: React.FC = props => {
+export const Header: React.FC = () => {
   const { appId, cityName } = useAppState();
   const dispatch = useAppDispatch();
 
@@ -17,7 +17,6 @@ export const Header: React.FC = props => {
       pad={{ left: 'medium', right: 'small', vertical: 'small' }}
       elevation="medium"
       style={{ zIndex: 1 }}
-      {...props}
     >
       <Heading level="3" margin="none">
         Tramuntana
