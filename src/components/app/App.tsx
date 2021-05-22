@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from '../../assets/images/logo.svg'
 import './App.css';
+import { AppContextProvider } from '../../contexts/appContext';
+import { Home } from '../../components/home/Home';
+import { Grommet, Box } from 'grommet';
+import { theme } from '../../styles/theme';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContextProvider>
+      <Grommet theme={theme} full>
+        <Box fill>
+          <Home />
+        </Box>
+      </Grommet>
+    </AppContextProvider>
   );
-}
+};
 
 export default App;

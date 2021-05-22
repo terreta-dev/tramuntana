@@ -4,4 +4,5 @@ export interface SearchParameters {
   lat?: number;
   lon?: number;
   zip?: string;
+  appId: string;
 }
