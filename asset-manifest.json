@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/tramuntana/static/css/main.696bbd84.chunk.css",
-    "main.js": "/tramuntana/static/js/main.4144cc3a.chunk.js",
-    "main.js.map": "/tramuntana/static/js/main.4144cc3a.chunk.js.map",
-    "runtime-main.js": "/tramuntana/static/js/runtime-main.adc115b0.js",
-    "runtime-main.js.map": "/tramuntana/static/js/runtime-main.adc115b0.js.map",
-    "static/js/2.bb2add60.chunk.js": "/tramuntana/static/js/2.bb2add60.chunk.js",
-    "static/js/2.bb2add60.chunk.js.map": "/tramuntana/static/js/2.bb2add60.chunk.js.map",
+    "main.css": "/tramuntana/static/css/main.3e2fe3ae.chunk.css",
+    "main.js": "/tramuntana/static/js/main.d6ccabad.chunk.js",
+    "main.js.map": "/tramuntana/static/js/main.d6ccabad.chunk.js.map",
+    "runtime-main.js": "/tramuntana/static/js/runtime-main.c2122e00.js",
+    "runtime-main.js.map": "/tramuntana/static/js/runtime-main.c2122e00.js.map",
+    "static/js/2.004ff647.chunk.js": "/tramuntana/static/js/2.004ff647.chunk.js",
+    "static/js/2.004ff647.chunk.js.map": "/tramuntana/static/js/2.004ff647.chunk.js.map",
     "index.html": "/tramuntana/index.html",
-    "precache-manifest.99bf7c653ddf49bcc401faef3d3b4bbd.js": "/tramuntana/precache-manifest.99bf7c653ddf49bcc401faef3d3b4bbd.js",
-    "service-worker.js": "/tramuntana/service-worker.js",
-    "static/css/main.696bbd84.chunk.css.map": "/tramuntana/static/css/main.696bbd84.chunk.css.map"
+    "static/css/main.3e2fe3ae.chunk.css.map": "/tramuntana/static/css/main.3e2fe3ae.chunk.css.map",
+    "static/js/2.004ff647.chunk.js.LICENSE.txt": "/tramuntana/static/js/2.004ff647.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.adc115b0.js",
-    "static/js/2.bb2add60.chunk.js",
-    "static/css/main.696bbd84.chunk.css",
-    "static/js/main.4144cc3a.chunk.js"
+    "static/js/runtime-main.c2122e00.js",
+    "static/js/2.004ff647.chunk.js",
+    "static/css/main.3e2fe3ae.chunk.css",
+    "static/js/main.d6ccabad.chunk.js"
   ]
 }
