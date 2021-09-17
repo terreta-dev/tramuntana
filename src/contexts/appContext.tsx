@@ -1,23 +1,31 @@
-import * as React from 'react';
+import { createContext, ReactNode, useContext, useReducer } from "react";
 
-type Action = { type: string; payload: string };
+export enum ActionType {
+  SET_APP_ID = "setAppId",
+  SET_CITY = "setCity"
+}
+export type Action = { type: ActionType; payload: string };
+
 type Dispatch = (action: Action) => void;
+
 interface State {
-  cityName: string;
+  city: string;
   appId: string;
 }
-type AppProviderProps = { children: React.ReactNode };
 
-const AppStateContext = React.createContext<State | undefined>(undefined);
-const AppDispatchContext = React.createContext<Dispatch | undefined>(undefined);
+type AppProviderProps = { children: ReactNode };
+
+const AppStateContext = createContext<State | undefined>(undefined);
+
+const AppDispatchContext = createContext<Dispatch | undefined>(undefined);
 
 const appContextReducer = (state: State, action: Action) => {
   switch (action.type) {
-    case 'setAppId': {
+    case ActionType.SET_APP_ID: {
       return { ...state, appId: action.payload };
     }
-    case 'setCityName': {
-      return { ...state, cityName: action.payload };
+    case ActionType.SET_CITY: {
+      return { ...state, city: action.payload };
     }
     default: {
       throw new Error(`Unhandled action: ${action}`);
@@ -26,9 +34,9 @@ const appContextReducer = (state: State, action: Action) => {
 };
 
 const AppContextProvider = ({ children }: AppProviderProps) => {
-  const [state, dispatch] = React.useReducer(appContextReducer, {
-    appId: process.env.REACT_APP_OPENWEATHER_KEY || '',
-    cityName: '',
+  const [state, dispatch] = useReducer(appContextReducer, {
+    appId: process.env.REACT_APP_OPENWEATHER_KEY || "",
+    city: ""
   });
   return (
     <AppStateContext.Provider value={state}>
@@ -40,17 +48,17 @@ const AppContextProvider = ({ children }: AppProviderProps) => {
 };
 
 const useAppState = () => {
-  const context = React.useContext(AppStateContext);
+  const context = useContext(AppStateContext);
   if (context === undefined) {
-    throw new Error('useState must be used within a AppContextProvider');
+    throw new Error("useState must be used within a AppContextProvider");
   }
   return context;
 };
 
 const useAppDispatch = () => {
-  const context = React.useContext(AppDispatchContext);
+  const context = useContext(AppDispatchContext);
   if (context === undefined) {
-    throw new Error('useDispatch must be used within a AppContextProvider');
+    throw new Error("useDispatch must be used within a AppContextProvider");
   }
   return context;
 };

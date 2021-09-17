@@ -1,8 +1,8 @@
-import { Coordinates } from './coordinates';
-import { WeatherCondition } from './weather-condition';
-import { WeatherParameters } from './weather-parameters';
+import { Coordinates } from "./coordinates";
+import { WeatherCondition } from "./weather-condition";
+import { WeatherParameters } from "./weather-parameters";
 
-export interface CurrentWeather {
+export interface Weather {
   name: string;
   coordinates: Coordinates;
   weatherConditions: WeatherCondition[];

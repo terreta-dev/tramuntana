@@ -1,12 +1,12 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 export const axiosInstance: AxiosInstance = axios.create({
-  baseURL: 'http://api.openweathermap.org/data/2.5/',
+  baseURL: "http://api.openweathermap.org/data/2.5/",
   timeout: 10000,
   headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
+    Accept: "application/json",
+    "Content-Type": "application/json"
+  }
 });
 
 export const get = <T = any>(

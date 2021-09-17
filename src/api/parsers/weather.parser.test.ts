@@ -1,20 +1,20 @@
-import { parseCurrentWeather } from './current-weather.parser';
+import { parseCurrentWeather } from "./weather.parser";
 
-it('parses an api response correctly', () => {
+it("parses an api response correctly", () => {
   const apiJson = {
     coord: {
       lon: -122.08,
-      lat: 37.39,
+      lat: 37.39
     },
     weather: [
       {
         id: 800,
-        main: 'Clear',
-        description: 'clear sky',
-        icon: '01d',
-      },
+        main: "Clear",
+        description: "clear sky",
+        icon: "01d"
+      }
     ],
-    base: 'stations',
+    base: "stations",
     main: {
       temp: 296.71,
       pressure: 1013,
@@ -22,36 +22,36 @@ it('parses an api response correctly', () => {
       temp_min: 294.82,
       temp_max: 298.71,
       sea_level: 1004,
-      grnd_level: 987.4,
+      grnd_level: 987.4
     },
     visibility: 16093,
     wind: {
       speed: 1.5,
-      deg: 350,
+      deg: 350
     },
     clouds: {
-      all: 1,
+      all: 1
     },
     rain: {
-      '1h': 10,
+      "1h": 10
     },
     snow: {
-      '1h': 20,
-      '3h': 40,
+      "1h": 20,
+      "3h": 40
     },
     dt: 1560350645,
     sys: {
       type: 1,
       id: 5122,
       message: 0.0139,
-      country: 'US',
+      country: "US",
       sunrise: 1560343627,
-      sunset: 1560396563,
+      sunset: 1560396563
     },
     timezone: -25200,
     id: 420006353,
-    name: 'Mountain View',
-    cod: 200,
+    name: "Mountain View",
+    cod: 200
   };
   const parseResult = parseCurrentWeather(apiJson);
   expect(parseResult).toBeDefined();
@@ -84,10 +84,10 @@ it('parses an api response correctly', () => {
   expect(parseResult.weatherParameters.windSpeed).toBe(apiJson.wind.speed);
   expect(parseResult.weatherParameters.windDirection).toBe(apiJson.wind.deg);
   expect(parseResult.weatherParameters.cloudiness).toBe(apiJson.clouds.all);
-  expect(parseResult.weatherParameters.rainInLastHour).toBe(apiJson.rain['1h']);
+  expect(parseResult.weatherParameters.rainInLastHour).toBe(apiJson.rain["1h"]);
   expect(parseResult.weatherParameters.rainInLastThreeHours).toBe(undefined);
-  expect(parseResult.weatherParameters.snowInLastHour).toBe(apiJson.snow['1h']);
+  expect(parseResult.weatherParameters.snowInLastHour).toBe(apiJson.snow["1h"]);
   expect(parseResult.weatherParameters.snowInLastThreeHours).toBe(
-    apiJson.snow['3h']
+    apiJson.snow["3h"]
   );
 });
