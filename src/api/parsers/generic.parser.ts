@@ -30,14 +30,11 @@ const setValueByPath = (inObject: any, path: string, value: any): any => {
  * for ES5 compatibility.
  */
 export const genericParse = <T = any>(apiJson: any, fieldMap: any): T => {
-  return Object.keys(fieldMap).reduce(
-    (result: T, key: string) => {
-      const apiValue = findValueByPath(apiJson, key);
-      if (apiValue) {
-        setValueByPath(result, fieldMap[key], apiValue);
-      }
-      return result;
-    },
-    {} as T
-  );
+  return Object.keys(fieldMap).reduce((result: T, key: string) => {
+    const apiValue = findValueByPath(apiJson, key);
+    if (apiValue) {
+      setValueByPath(result, fieldMap[key], apiValue);
+    }
+    return result;
+  }, {} as T);
 };

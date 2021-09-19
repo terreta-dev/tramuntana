@@ -17,25 +17,25 @@ it("parses an api response correctly", () => {
           sea_level: 1043.17,
           grnd_level: 968.38,
           humidity: 85,
-          temp_kf: 0
+          temp_kf: 0,
         },
         weather: [
-          { id: 801, main: "Clouds", description: "few clouds", icon: "02n" }
+          { id: 801, main: "Clouds", description: "few clouds", icon: "02n" },
         ],
         clouds: { all: 20 },
         wind: { speed: 3.57, deg: 255.503 },
         rain: {},
         snow: {},
         sys: { pod: "n" },
-        dt_txt: "2017-02-20 21:00:00"
-      }
+        dt_txt: "2017-02-20 21:00:00",
+      },
     ],
     city: {
       id: 6940463,
       name: "Altstadt",
       coord: { lat: 48.137, lon: 11.5752 },
-      country: "none"
-    }
+      country: "none",
+    },
   };
   const parseResult = parseFiveDayForecast(apiJson);
   expect(parseResult).toBeDefined();

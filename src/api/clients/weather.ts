@@ -6,6 +6,11 @@ import { parseCurrentWeather } from "../parsers/weather.parser";
 export const getWeather = async (
   params: SearchParameters
 ): Promise<Weather> => {
-  const data = await get("weather", { params });
+  const data = await get("weather", {
+    params: {
+      units: "metric",
+      ...params,
+    },
+  });
   return parseCurrentWeather(data);
 };

@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
-    "format": "prettier --write src/**/*.{ts,tsx,css}",
+    "format": "prettier --write src/**/*.{ts,tsx} --parser typescript",
     "clean": "rm -rf ./coverage && rm -rf ./build"
   },
   "eslintConfig": {

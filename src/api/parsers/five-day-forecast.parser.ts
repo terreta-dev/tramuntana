@@ -6,7 +6,7 @@ export const fiveDayForecastFieldMap = {
   "city.coord.lon": "coordinates.longitude",
   "city.coord.lat": "coordinates.latitude",
   "city.country": "country",
-  "city.name": "name"
+  "city.name": "name",
 };
 
 export const forecastFieldMap = {
@@ -24,7 +24,7 @@ export const forecastFieldMap = {
   "rain.3h": "weatherParameters.rainInLastThreeHours",
   "snow.3h": "weatherParameters.snowInLastThreeHours",
   dt: "time",
-  dt_txt: "calculationTime"
+  dt_txt: "calculationTime",
 };
 
 export const parseFiveDayForecast = (apiJson: any): FiveDayForecast => {

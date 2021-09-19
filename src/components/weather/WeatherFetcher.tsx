@@ -10,10 +10,18 @@ const WeatherFetcher = () => {
   const { appId, city } = useAppState();
 
   useEffect(() => {
-    getWeather({ q: city, appId }).then(setWeather);
+    if (city?.length > 0 && appId?.length > 0) {
+      getWeather({ q: city, appId }).then(setWeather);
+    }
   }, [appId, city]);
 
-  return <WeatherCard weather={weather} />;
+  return (
+    <>
+      {weather.hasOwnProperty("weatherConditions") && (
+        <WeatherCard weather={weather} />
+      )}
+    </>
+  );
 };
 
 export default WeatherFetcher;

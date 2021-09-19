@@ -2,10 +2,10 @@ import { genericParse } from "./generic.parser";
 
 it("parses 1st level property", () => {
   const fieldMap = {
-    "1stLevel": "1stLevelTarget"
+    "1stLevel": "1stLevelTarget",
   };
   const apiJson = {
-    "1stLevel": 1
+    "1stLevel": 1,
   };
   const resultObject = genericParse<any>(apiJson, fieldMap);
   expect(resultObject).toBeDefined();
@@ -15,12 +15,12 @@ it("parses 1st level property", () => {
 
 it("parses 2nd level property", () => {
   const fieldMap = {
-    "1stLevel.2ndLevel": "1stLevelTarget.2ndLevelTarget"
+    "1stLevel.2ndLevel": "1stLevelTarget.2ndLevelTarget",
   };
   const apiJson = {
     "1stLevel": {
-      "2ndLevel": "test"
-    }
+      "2ndLevel": "test",
+    },
   };
   const resultObject = genericParse<any>(apiJson, fieldMap);
   expect(resultObject).toBeDefined();
@@ -30,10 +30,10 @@ it("parses 2nd level property", () => {
 
 it("sets undefined on unknown properties", () => {
   const fieldMap = {
-    "1stLevel.2ndLevel": "1stLevelTarget.2ndLevelTarget"
+    "1stLevel.2ndLevel": "1stLevelTarget.2ndLevelTarget",
   };
   const apiJson = {
-    "2ndLevel": 1
+    "2ndLevel": 1,
   };
   const resultObject = genericParse<any>(apiJson, fieldMap);
   expect(resultObject).toBeDefined();

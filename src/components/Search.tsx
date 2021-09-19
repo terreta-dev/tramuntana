@@ -11,7 +11,7 @@ const Search = () => {
     }
   };
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCity(e.target.value);
+    setCity(e.currentTarget.value);
   };
 
   return (

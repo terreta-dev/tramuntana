@@ -6,15 +6,15 @@ import { darkTheme, lightTheme } from "./theme/theme";
 import { useState } from "react";
 import Content from "./components/Content";
 import Icon from "./components/icon/Icon";
-import ApiKeyInput from "./components/ApiKeyInput";
+import ApiKeyDropdown from "./components/ApiKeyDropdown";
 import Dashboard from "./views/Dashboard";
 import Search from "./components/Search";
 
 const AppMainContainer = styled.div`
   min-height: 100vh;
   min-width: 100vw;
-  background-color: ${props => props.theme.color.primaryBackground};
-  color: ${props => props.theme.color.primaryText};
+  background-color: ${(props) => props.theme.color.primaryBackground};
+  color: ${(props) => props.theme.color.primaryText};
   display: grid;
   grid-template-areas:
     "header"
@@ -40,12 +40,7 @@ const App = () => {
                 size="2em"
                 name={isDark ? "BsDroplet" : "BsDropletFill"}
               />
-              <ApiKeyInput
-                style={{
-                  marginLeft: "auto",
-                  marginRight: "inherit"
-                }}
-              />
+              <ApiKeyDropdown />
             </Header>
             <Content>
               <Dashboard />

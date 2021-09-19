@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Icon, { IconName } from "./icon/Icon";
 import Input from "./Input";
 import { useAppDispatch, ActionType } from "../contexts/appContext";
+import { useToggle } from "../hooks/useToggle";
 
 const InputContainer = styled.div`
   display: flex;
@@ -29,13 +30,12 @@ const InnerInput = styled(Input)<InputProps>`
 const ApiKeyInput: FC<
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 > = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, toggleExpanded] = useToggle();
   const [apiKey, setApiKey] = useState("");
   const dispatch = useAppDispatch();
 
-  const toggleExpanded = () => setExpanded(!expanded);
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) =>
-    changeCity(e.target.value);
+    changeCity(e.currentTarget.value);
   const changeCity = (newCity: string) => {
     setApiKey(newCity);
     dispatch({ type: ActionType.SET_APP_ID, payload: apiKey });

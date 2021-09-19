@@ -25,7 +25,7 @@ export const currentWeatherFieldMap = {
   timezone: "timezone",
   "sys.sunrise": "sunrise",
   "sys.sunset": "sunset",
-  "sys.country": "country"
+  "sys.country": "country",
 };
 
 export const parseCurrentWeather = (apiJson: Object): Weather =>

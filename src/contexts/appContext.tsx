@@ -2,7 +2,7 @@ import { createContext, ReactNode, useContext, useReducer } from "react";
 
 export enum ActionType {
   SET_APP_ID = "setAppId",
-  SET_CITY = "setCity"
+  SET_CITY = "setCity",
 }
 export type Action = { type: ActionType; payload: string };
 
@@ -35,8 +35,8 @@ const appContextReducer = (state: State, action: Action) => {
 
 const AppContextProvider = ({ children }: AppProviderProps) => {
   const [state, dispatch] = useReducer(appContextReducer, {
-    appId: process.env.REACT_APP_OPENWEATHER_KEY || "",
-    city: ""
+    appId: "",
+    city: "",
   });
   return (
     <AppStateContext.Provider value={state}>

@@ -25,10 +25,10 @@ const marginForIcon = ({ margin }: IconProps) =>
     : css``;
 
 const IconDiv = styled.div<IconProps>`
-    ${marginForIcon}
-    font-size: ${({ size }) => size || "1em"};
-    height: 1em;
-    color: ${({ color, theme }) => color || theme.color.primaryText};
+  ${marginForIcon}
+  font-size: ${({ size }) => size || "1em"};
+  height: 1em;
+  color: ${({ color, theme }) => color || theme.color.primaryText};
 `;
 
 const Icon = (props: IconProps) => {

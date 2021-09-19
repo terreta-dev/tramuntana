@@ -4,15 +4,15 @@ it("parses an api response correctly", () => {
   const apiJson = {
     coord: {
       lon: -122.08,
-      lat: 37.39
+      lat: 37.39,
     },
     weather: [
       {
         id: 800,
         main: "Clear",
         description: "clear sky",
-        icon: "01d"
-      }
+        icon: "01d",
+      },
     ],
     base: "stations",
     main: {
@@ -22,22 +22,22 @@ it("parses an api response correctly", () => {
       temp_min: 294.82,
       temp_max: 298.71,
       sea_level: 1004,
-      grnd_level: 987.4
+      grnd_level: 987.4,
     },
     visibility: 16093,
     wind: {
       speed: 1.5,
-      deg: 350
+      deg: 350,
     },
     clouds: {
-      all: 1
+      all: 1,
     },
     rain: {
-      "1h": 10
+      "1h": 10,
     },
     snow: {
       "1h": 20,
-      "3h": 40
+      "3h": 40,
     },
     dt: 1560350645,
     sys: {
@@ -46,12 +46,12 @@ it("parses an api response correctly", () => {
       message: 0.0139,
       country: "US",
       sunrise: 1560343627,
-      sunset: 1560396563
+      sunset: 1560396563,
     },
     timezone: -25200,
     id: 420006353,
     name: "Mountain View",
-    cod: 200
+    cod: 200,
   };
   const parseResult = parseCurrentWeather(apiJson);
   expect(parseResult).toBeDefined();
