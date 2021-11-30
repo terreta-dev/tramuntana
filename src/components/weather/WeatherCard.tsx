@@ -37,7 +37,7 @@ const toLocalTime = (
   timezoneSeconds: number
 ): string => {
   const isoDate = new Date(
-    1000 * (secondsSinceEpoch + timezoneSeconds)
+    1000 * (secondsSinceEpoch + (timezoneSeconds ? timezoneSeconds : 0))
   ).toISOString();
   return isoDate.match(/[0-2]\d:[0-5]\d:?([0-5]\d)/)?.[0] ?? "N/A";
 };
