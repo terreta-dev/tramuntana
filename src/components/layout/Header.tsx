@@ -1,12 +1,5 @@
 import { PropsWithChildren } from "react";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-
-const marginToChildElements = css`
-  & > * {
-    margin: 0px 15px;
-  }
-`;
 
 const InnerHeader = styled.div`
   display: flex;
@@ -16,7 +9,6 @@ const InnerHeader = styled.div`
   background-color: transparent;
   height: 100%;
   grid-area: header;
-  ${marginToChildElements}
 `;
 
 const Header = ({ children }: PropsWithChildren<{}>) => {

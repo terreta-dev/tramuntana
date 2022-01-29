@@ -6,6 +6,11 @@ import { parseFiveDayForecast } from "../parsers/five-day-forecast.parser";
 export const getFiveDayForecast = async (
   params: SearchParameters
 ): Promise<FiveDayForecast> => {
-  const data = await get<FiveDayForecast>("forecast", { params });
+  const data = await get<FiveDayForecast>("forecast", {
+    params: {
+      units: "metric",
+      ...params,
+    },
+  });
   return parseFiveDayForecast(data);
 };

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import { getWeather } from "../../api/clients/weather";
 import { Weather } from "../../api/interfaces/weather";
 import { useAppState } from "../../contexts/appContext";
@@ -11,16 +10,17 @@ const WeatherFetcher = () => {
 
   useEffect(() => {
     if (city?.length > 0 && appId?.length > 0) {
-      getWeather({ q: city, appId }).then(setWeather);
+        getWeather({ q: city, appId })
+            .then(setWeather);
     }
   }, [appId, city]);
 
   return (
-    <>
+    <div>
       {weather.hasOwnProperty("weatherConditions") && (
         <WeatherCard weather={weather} />
       )}
-    </>
+    </div>
   );
 };
 
