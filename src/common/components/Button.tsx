@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const Input = styled.input`
+const Button = styled.button`
   color: ${({ theme }) => theme.color.secondaryText};
   background: ${({ theme }) => theme.color.primaryAccent} none repeat
   scroll 0% 0%;
@@ -11,4 +11,4 @@ const Input = styled.input`
   border: 0px;
 `;
 
-export default Input;
+export default Button;

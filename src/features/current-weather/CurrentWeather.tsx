@@ -11,7 +11,7 @@ interface RowProps {
 const Row = styled.div<RowProps>`
     flex: ${(props) => props.flex ? props.flex : 1};
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 `;
 
 interface TextLabelProps {

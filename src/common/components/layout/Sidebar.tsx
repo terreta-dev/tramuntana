@@ -3,8 +3,8 @@ import { PropsWithChildren } from "react";
 
 const SidebarContainer = styled.div`
     grid-area: sidebar;
-    background-color: ${(props) => props.theme.color.primaryBackground};
-    color: ${(props) => props.theme.color.primaryText};
+    background-color: ${(props) => props.theme.color.secondaryBackground};
+    color: ${(props) => props.theme.color.secondaryText};
     display: flex;
     flex-direction: column;
     padding: 10px;

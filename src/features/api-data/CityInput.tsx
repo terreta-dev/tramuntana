@@ -1,7 +1,7 @@
 import Input from '../../common/components/Input';
 import { ChangeEvent, KeyboardEvent, useState } from "react";
-import { useAppDispatch } from '../../app/hooks';
-import { changeCity } from './apiDataSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { changeCity, selectCity } from './apiDataSlice';
 
 const CityInput = () => {
   const [city, setCity] = useState("");

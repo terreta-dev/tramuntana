@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
+import { API_KEY } from "../../common/constants/localStorage";
 
 interface ApiDataState {
   city: string;
@@ -8,7 +9,7 @@ interface ApiDataState {
 
 const initialState: ApiDataState = {
   city: "",
-  apiKey: "",
+  apiKey: localStorage.getItem(API_KEY) || "",
 };
 
 export const apiDataSlice = createSlice({
