@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import WeatherIcon, { IconName } from "../icon/WeatherIcon";
+import WeatherIcon, { IconName } from "../../common/components/icon/WeatherIcon";
 
 interface LabelProps {
   name: IconName;
@@ -11,7 +11,7 @@ const Span = styled.span`
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   font-size: 16px;
 `;
 

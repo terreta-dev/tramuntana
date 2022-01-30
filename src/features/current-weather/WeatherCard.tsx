@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { Weather } from "../../api/interfaces/weather";
-import { toLocalTime } from "../../utils/to-locale-time";
-import WeatherIcon, { getWeatherIcon } from "../icon/WeatherIcon";
-import Label from "./Label";
+import { Weather } from "../../common/api/interfaces/weather";
+import { toLocalTime } from "../../common/utils/to-locale-time";
+import WeatherIcon, { getWeatherIcon } from "../../common/components/icon/WeatherIcon";
+import WeatherIconLabel from "../../common/components/WeatherIconLabel";
 
 const GridContainer = styled.div`
   display: grid;
@@ -43,40 +43,40 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({
           />
         </GridDiv>
         <GridDiv zone="temperature">
-          <Label
+          <WeatherIconLabel
             name="WiThermometer"
-            text={weather.weatherParameters.temperature}
+            text={Math.round(weather.weatherParameters.temperature)}
             unit="ºC"
           />
-          <Label
+          <WeatherIconLabel
             name="WiDirectionUp"
-            text={weather.weatherParameters.maxTemperature}
+            text={Math.round(weather.weatherParameters.maxTemperature)}
             unit="ºC"
           />
-          <Label
+          <WeatherIconLabel
             name="WiDirectionDown"
-            text={weather.weatherParameters.minTemperature}
+            text={Math.round(weather.weatherParameters.minTemperature)}
             unit="ºC"
           />
         </GridDiv>
         <GridDiv zone="vars1">
-          <Label
+          <WeatherIconLabel
             name="WiBarometer"
             text={weather.weatherParameters.pressure}
             unit="hPa"
           />
-          <Label
+          <WeatherIconLabel
             name="WiHumidity"
             text={weather.weatherParameters.humidity}
             unit="%"
           />
         </GridDiv>
         <GridDiv zone="vars2">
-          <Label
+          <WeatherIconLabel
             name="WiSunrise"
             text={toLocalTime(weather.sunrise, weather.timezone)}
           />
-          <Label
+          <WeatherIconLabel
             name="WiSunset"
             text={toLocalTime(weather.sunset, weather.timezone)}
           />

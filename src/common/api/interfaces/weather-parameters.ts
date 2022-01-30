@@ -1,5 +1,6 @@
 export interface WeatherParameters {
   temperature: number;
+  feelsLike: number;
   pressure: number;
   humidity: number;
   maxTemperature: number;

@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { Forecast } from "../../api/interfaces/forecast";
-import { toCalendarDate, toLocalTime } from "../../utils/to-locale-time";
-import WeatherIcon, { getWeatherIcon } from "../icon/WeatherIcon";
-import Label from "../weather/Label";
+import { Forecast } from "../../common/api/interfaces/forecast";
+import { toCalendarDate, toLocalTime } from "../../common/utils/to-locale-time";
+import WeatherIcon, { getWeatherIcon } from "../../common/components/icon/WeatherIcon";
+import WeatherIconLabel from "../../common/components/WeatherIconLabel";
 
 const GridContainer = styled.div`
   display: grid;
@@ -42,41 +42,41 @@ export const ForecastCard: React.FC<ForecastCardProps> = ({
           />
         </GridDiv>
         <GridDiv zone="temperature">
-          <Label
+          <WeatherIconLabel
             name="WiThermometer"
             text={forecast.weatherParameters.temperature}
             unit="ºC"
           />
-          <Label
+          <WeatherIconLabel
             name="WiDirectionUp"
             text={forecast.weatherParameters.maxTemperature}
             unit="ºC"
           />
-          <Label
+          <WeatherIconLabel
             name="WiDirectionDown"
             text={forecast.weatherParameters.minTemperature}
             unit="ºC"
           />
         </GridDiv>
         <GridDiv zone="vars1">
-          <Label
+          <WeatherIconLabel
             name="WiBarometer"
             text={forecast.weatherParameters.pressure}
             unit="hPa"
           />
-          <Label
+          <WeatherIconLabel
             name="WiHumidity"
             text={forecast.weatherParameters.humidity}
             unit="%"
           />
         </GridDiv>
         <GridDiv zone="vars2">
-          <Label
+          <WeatherIconLabel
             name="WiTime12"
             text={toCalendarDate(forecast.time, undefined)}
             unit=""
           />
-          <Label
+          <WeatherIconLabel
             name="WiTime1"
             text={toLocalTime(forecast.time, undefined)}
             unit="h"

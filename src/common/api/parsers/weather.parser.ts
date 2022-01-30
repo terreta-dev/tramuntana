@@ -6,6 +6,7 @@ export const currentWeatherFieldMap = {
   "coord.lat": "coordinates.latitude",
   weather: "weatherConditions",
   "main.temp": "weatherParameters.temperature",
+  "main.feels_like": "weatherParameters.feelsLike",
   "main.pressure": "weatherParameters.pressure",
   "main.humidity": "weatherParameters.humidity",
   "main.temp_min": "weatherParameters.minTemperature",

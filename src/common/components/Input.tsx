@@ -10,7 +10,7 @@ const Input = styled.input`
   font-weight: 600;
   margin: 0px;
   border: 1px solid ${({ theme }) => theme.color.secondaryBackground};
-  border-radius: 4px;
+  border-radius: 1em;
 `;
 
 export default Input;

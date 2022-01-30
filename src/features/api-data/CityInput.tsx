@@ -1,19 +1,19 @@
+import Input from '../../common/components/Input';
 import { ChangeEvent, KeyboardEvent, useState } from "react";
-import { ActionType, useAppDispatch } from "../contexts/appContext";
-import Input from "./Input";
+import { useAppDispatch } from '../../app/hooks';
+import { changeCity } from './apiDataSlice';
 
-const Search = () => {
+const CityInput = () => {
   const [city, setCity] = useState("");
   const dispatch = useAppDispatch();
   const onSearch = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      dispatch({ type: ActionType.SET_CITY, payload: city });
+      dispatch(changeCity(city));
     }
   };
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.currentTarget.value);
   };
-
   return (
     <Input
       defaultValue={city}
@@ -24,4 +24,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default CityInput;

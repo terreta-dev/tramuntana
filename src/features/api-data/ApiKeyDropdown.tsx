@@ -1,8 +1,9 @@
 import styled from "@emotion/styled/macro";
 import { ChangeEvent, useState } from "react";
-import { ActionType, useAppDispatch } from "../contexts/appContext";
-import Icon, { IconName } from "./icon/Icon";
-import Input from "./Input";
+import { useAppDispatch } from "../../app/hooks";
+import Icon, { IconName } from "../../common/components/icon/Icon";
+import Input from "../../common/components/Input";
+import { changeApiKey } from "./apiDataSlice";
 
 const DropdownContent = styled.div`
   display: none;
@@ -50,7 +51,7 @@ const ApiKeyDropdown = () => {
     setApiKey(e.currentTarget.value);
 
   const saveApiKey = () =>
-    dispatch({ type: ActionType.SET_APP_ID, payload: apiKey });
+    dispatch(changeApiKey(apiKey));
   return (
     <Dropdown>
       <Icon name={icon} size="2em" />
