@@ -7,6 +7,6 @@ export const theme: Theme = {
     primaryText: "#0d0d0d",
     secondaryText: "#ffffff",
     primaryAccent: "#CACACA",
-    secondaryAccent: "#141519"
+    secondaryAccent: "#141519",
   },
 };

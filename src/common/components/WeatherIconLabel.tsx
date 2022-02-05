@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import WeatherIcon, { IconName } from "../../common/components/icon/WeatherIcon";
+import WeatherIcon, { IconName } from "./icon/WeatherIcon";
 
 interface LabelProps {
   name: IconName;

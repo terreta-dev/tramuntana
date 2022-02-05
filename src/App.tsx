@@ -9,30 +9,31 @@ import { useAppSelector } from "./app/hooks";
 import { selectApiKey } from "./features/api-data/apiDataSlice";
 import ApiKeyView from "./features/api-data/ApiKeyView";
 import CityInput from "./features/api-data/CityInput";
+import FiveDayForecastFetcher from "./features/five-day-forecast/FiveDayForecastFetcher";
 
 const App = () => {
-    const apiKey = useAppSelector(selectApiKey);
-    const hasApiKey = (key: string) => !!key && key !== "";
+  const apiKey = useAppSelector(selectApiKey);
+  const hasApiKey = (key: string) => !!key && key !== "";
   return (
-      <>
-          <ThemeProvider theme={theme}>
-
-              { hasApiKey(apiKey) ?
-                  (<AppGridContainer>
-                  <Header>
-                  <CityInput />
-                  </Header>
-                  <Sidebar>
-                  <WeatherFetcher />
-                  </Sidebar>
-                  <Content>
-                  </Content>
-                  </AppGridContainer>)
-                  :
-                  (<ApiKeyView />)
-                  }
-          </ThemeProvider>
-      </>
+    <>
+      <ThemeProvider theme={theme}>
+        {hasApiKey(apiKey) ? (
+          <AppGridContainer>
+            <Header>
+              <CityInput />
+            </Header>
+            <Sidebar>
+              <WeatherFetcher />
+            </Sidebar>
+            <Content>
+              <FiveDayForecastFetcher />
+            </Content>
+          </AppGridContainer>
+        ) : (
+          <ApiKeyView />
+        )}
+      </ThemeProvider>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import {  useEffect } from "react";
+import { useEffect } from "react";
 import { getWeather } from "../../common/api/clients/weather";
 import { Weather } from "../../common/api/interfaces/weather";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
@@ -8,21 +8,18 @@ import CurrentWeather from "./CurrentWeather";
 
 const WeatherFetcher = () => {
   const city = useAppSelector(selectCity);
-    const appId = useAppSelector(selectApiKey);
-    const dispatch = useAppDispatch();
+  const appId = useAppSelector(selectApiKey);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (city?.length > 0 && appId?.length > 0) {
-        getWeather({ q: city, appId })
-            .then((w: Weather) => dispatch(changeWeather(w)));
+      getWeather({ q: city, appId }).then((w: Weather) =>
+        dispatch(changeWeather(w))
+      );
     }
   }, [appId, city, dispatch]);
 
-  return (
-      <>
-          <CurrentWeather />
-    </>
-  );
+  return <CurrentWeather />;
 };
 
 export default WeatherFetcher;

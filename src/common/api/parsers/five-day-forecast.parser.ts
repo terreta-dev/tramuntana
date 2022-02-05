@@ -3,33 +3,35 @@ import { Forecast } from "../interfaces/forecast";
 import { genericParse } from "./generic.parser";
 
 export const fiveDayForecastFieldMap = {
-  "city.coord.lon": "coordinates.longitude",
-  "city.coord.lat": "coordinates.latitude",
-  "city.country": "country",
-  "city.name": "name",
+  lon: "coordinates.longitude",
+  lat: "coordinates.latitude",
+  timezone_offset: "timezone",
 };
 
 export const forecastFieldMap = {
   weather: "weatherConditions",
-  "main.temp": "weatherParameters.temperature",
-  "main.pressure": "weatherParameters.pressure",
-  "main.humidity": "weatherParameters.humidity",
-  "main.temp_min": "weatherParameters.minTemperature",
-  "main.temp_max": "weatherParameters.maxTemperature",
-  "main.sea_level": "weatherParameters.pressureAtSeaLevel",
-  "main.grnd_level": "weatherParameters.pressureAtGroundLevel",
-  "wind.speed": "weatherParameters.windSpeed",
-  "wind.deg": "weatherParameters.windDirection",
-  "clouds.all": "weatherParameters.cloudiness",
-  "rain.3h": "weatherParameters.rainInLastThreeHours",
-  "snow.3h": "weatherParameters.snowInLastThreeHours",
+  "temp.min": "temperature.real.min",
+  "temp.max": "temperature.real.max",
+  "feels_like.day": "temperature.feelsLike.day",
+  "feels_like.night": "temperature.feelsLike.night",
+  pressure: "pressure",
+  humidity: "humidity",
+  speed: "windSpeed",
+  deg: "windDirection",
+  clouds: "cloudiness",
+  rain: "rain",
+  snow: "snow",
+  pop: "rainProbability",
+  sunrise: "sunrise",
+  sunset: "sunset",
+  moonrise: "moonrise",
+  moonset: "moonset",
   dt: "time",
-  dt_txt: "calculationTime",
 };
 
 export const parseFiveDayForecast = (apiJson: any): FiveDayForecast => {
   const parse = genericParse<FiveDayForecast>(apiJson, fiveDayForecastFieldMap);
-  parse.forecasts = apiJson["list"].map(parseForecast);
+  parse.forecasts = apiJson["daily"].map(parseForecast);
   return parse;
 };
 

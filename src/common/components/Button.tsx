@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 
 const Button = styled.button`
   color: ${({ theme }) => theme.color.secondaryText};
-  background: ${({ theme }) => theme.color.primaryAccent} none repeat
-  scroll 0% 0%;
+  background: ${({ theme }) => theme.color.primaryAccent} none repeat scroll 0%
+    0%;
   padding: 11px;
   font-weight: 600;
   margin: 0px;

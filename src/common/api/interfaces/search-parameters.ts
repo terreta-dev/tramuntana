@@ -5,4 +5,5 @@ export interface SearchParameters {
   lon?: number;
   zip?: string;
   appId: string;
+  cnt?: string;
 }
