@@ -35,7 +35,7 @@ const CurrentWeather = () => {
             <TextLabel fontSize="4em">
               <WeatherIcon
                 name={getWeatherIcon(weather.weatherConditions[0].icon)}
-                size="3em"
+                size="2em"
               />
             </TextLabel>
           </Row>

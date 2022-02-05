@@ -2,17 +2,31 @@ name: CD
 
 on:
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
   deploy:
-    name: Deploy to Github Pages 
+    name: Deploy to Github Pages
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
+
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
     - name: install dependencies, build and run tests
       run: |
         yarn install
-        yarn deploy
+        yarn build
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4.2.3
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: build # The folder the action should deploy.

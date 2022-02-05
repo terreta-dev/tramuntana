@@ -2,21 +2,27 @@ name: CI-tests
 
 on:
   pull_request:
-    branches: 
+    branches:
       - master
       - develop
 
 jobs:
   test:
-    name: Unit tests 
+    name: Unit tests
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
+
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
     - name: install dependencies, build and run tests
       run: |
         yarn install
         yarn run build --if-present
         yarn test:coverage
-    
-

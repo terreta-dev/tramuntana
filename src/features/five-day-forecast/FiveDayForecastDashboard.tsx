@@ -21,9 +21,9 @@ const CardContainer = styled.div`
 `;
 
 const ChartContainer = styled.div`
-  min-height:350px;
+  min-height: 350px;
   height: 0.5vh;
-    width: auto;
+  width: auto;
 `;
 
 const FiveDayForecastDashboard = () => {
@@ -42,7 +42,12 @@ const FiveDayForecastDashboard = () => {
             ))}
           </CardContainer>
           <ChartContainer>
-              <LineChart data={toChartData({...fiveDayForecast, forecasts: fiveDayForecast.forecasts.slice(1, 6)})} />
+            <LineChart
+              data={toChartData({
+                ...fiveDayForecast,
+                forecasts: fiveDayForecast.forecasts.slice(1, 6),
+              })}
+            />
           </ChartContainer>
         </DashboardContainer>
       ) : (
