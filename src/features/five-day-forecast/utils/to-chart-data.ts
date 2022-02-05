@@ -2,6 +2,11 @@ import { FiveDayForecast } from "../../../common/api/interfaces/five-day-forecas
 import { toCalendarDate } from "../../../common/utils/to-locale-time";
 import { DataPoint, LineChartData } from "../LineChart";
 
+const roundToDecimal = (value: number): number => {
+  console.log(Math.round(value * 10));
+  return Math.round(value * 10) / 10;
+};
+
 export const toChartData = (
   fiveDayForecast: FiveDayForecast
 ): LineChartData[] => {
@@ -10,19 +15,19 @@ export const toChartData = (
     const forecastDay = toCalendarDate(f.time, timezone);
     addData(acc, "Max temperature", {
       x: forecastDay,
-      y: f.temperature.real.max,
+      y: roundToDecimal(f.temperature.real.max),
     });
     addData(acc, "Min temperature", {
       x: forecastDay,
-      y: f.temperature.real.min,
+      y: roundToDecimal(f.temperature.real.min),
     });
     addData(acc, "Feels like day", {
       x: forecastDay,
-      y: f.temperature.feelsLike.day,
+      y: roundToDecimal(f.temperature.feelsLike.day),
     });
     addData(acc, "Feels like night", {
       x: forecastDay,
-      y: f.temperature.feelsLike.night,
+      y: roundToDecimal(f.temperature.feelsLike.night),
     });
     return acc;
   }, initialChartData());
