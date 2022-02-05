@@ -1,39 +1,37 @@
-import { AppContextProvider } from "./contexts/appContext";
-import Header from "./components/layout/Header";
+import Header from "./common/components/layout/Header";
 import { ThemeProvider } from "@emotion/react";
-import { darkTheme, lightTheme } from "./theme/theme";
-import { useState } from "react";
-import Content from "./components/layout/Content";
-import Icon from "./components/icon/Icon";
-import ApiKeyDropdown from "./components/ApiKeyDropdown";
-import Dashboard from "./views/Dashboard";
-import Search from "./components/Search";
-import AppGridContainer from "./components/layout/AppGridContainer";
-import Sidebar from "./components/layout/Sidebar";
+import { theme } from "./theme/theme";
+import Content from "./common/components/layout/Content";
+import AppGridContainer from "./common/components/layout/AppGridContainer";
+import Sidebar from "./common/components/layout/Sidebar";
+import WeatherFetcher from "./features/current-weather/WeatherFetcher";
+import { useAppSelector } from "./app/hooks";
+import { selectApiKey } from "./features/api-data/apiDataSlice";
+import ApiKeyView from "./features/api-data/ApiKeyView";
+import CityInput from "./features/api-data/CityInput";
+import FiveDayForecastFetcher from "./features/five-day-forecast/FiveDayForecastFetcher";
 
 const App = () => {
-  const [isDark, setIsDark] = useState(true);
-  const toggleTheme = () => setIsDark(!isDark);
+  const apiKey = useAppSelector(selectApiKey);
+  const hasApiKey = (key: string) => !!key && key !== "";
   return (
     <>
-      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <AppGridContainer>
-          <AppContextProvider>
+      <ThemeProvider theme={theme}>
+        {hasApiKey(apiKey) ? (
+          <AppGridContainer>
             <Header>
-              <Search />
-              <Icon
-                onClick={toggleTheme}
-                size="2em"
-                name={isDark ? "BsDroplet" : "BsDropletFill"}
-              />
-              <ApiKeyDropdown />
+              <CityInput />
             </Header>
-            <Sidebar/>
+            <Sidebar>
+              <WeatherFetcher />
+            </Sidebar>
             <Content>
-              <Dashboard />
+              <FiveDayForecastFetcher />
             </Content>
-          </AppContextProvider>
-        </AppGridContainer>
+          </AppGridContainer>
+        ) : (
+          <ApiKeyView />
+        )}
       </ThemeProvider>
     </>
   );
