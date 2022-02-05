@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/tramuntana/static/css/main.4a4137e4.chunk.css",
-    "main.js": "/tramuntana/static/js/main.3099d696.chunk.js",
-    "main.js.map": "/tramuntana/static/js/main.3099d696.chunk.js.map",
+    "main.js": "/tramuntana/static/js/main.7fa319fd.chunk.js",
+    "main.js.map": "/tramuntana/static/js/main.7fa319fd.chunk.js.map",
     "runtime-main.js": "/tramuntana/static/js/runtime-main.57910fa9.js",
     "runtime-main.js.map": "/tramuntana/static/js/runtime-main.57910fa9.js.map",
     "static/js/2.c5f7d641.chunk.js": "/tramuntana/static/js/2.c5f7d641.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.57910fa9.js",
     "static/js/2.c5f7d641.chunk.js",
     "static/css/main.4a4137e4.chunk.css",
-    "static/js/main.3099d696.chunk.js"
+    "static/js/main.7fa319fd.chunk.js"
   ]
 }
