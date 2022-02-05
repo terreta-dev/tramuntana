@@ -14,12 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Cache dependencies
-      uses: actions/cache@v2
+    - uses: actions/setup-node@v2
       with:
-        path: |
-          **/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        node-version: 'lts/gallium'
 
     - name: install dependencies, build and run tests
       run: |
